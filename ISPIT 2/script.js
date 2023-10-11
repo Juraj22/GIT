@@ -1,15 +1,16 @@
-function search() {
-  const searchInput = document.getElementById("searchInput").value;
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", () => {
+  const searchTerm = searchInput.value.trim();
   const resultsTable = document.getElementById("resultsBody");
   const loader = document.getElementById("loader");
   const results = document.getElementById("results");
 
-  // Loader dok se podaci skidaju
   loader.style.display = "block";
   results.style.display = "none";
   resultsTable.innerHTML = "";
 
-  fetch(`https://api.tvmaze.com/search/shows?q=${searchInput}`)
+  fetch(`https://api.tvmaze.com/search/shows?q=${searchTerm}`)
     .then((response) => response.json())
     .then((data) => {
       // Sakrij loader i prikaži rezultate
@@ -28,7 +29,7 @@ function search() {
 
           naslov.textContent = element.show.name;
           ocjena.textContent = element.show.rating.average || "Nema";
-          zanr.textContent = element.show.genres || "Nema";
+          zanr.textContent = element.show.genres.join(", ") || "Nema";
           opis.innerHTML = element.show.summary || "Nema";
 
           row.appendChild(naslov);
@@ -43,4 +44,4 @@ function search() {
     .catch((error) => {
       console.error("Greška pri učitavanju", error);
     });
-}
+});
