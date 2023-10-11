@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ispit JS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Search App</h1>
+    <input type="text" id="searchInput" placeholder="Unesite naziv" />
+    <button onclick="search()">Pretraži</button>
+    <div id="loader">Loading...</div>
+    <div id="results">
+      <table>
+        <thead>
+          <tr>
+            <th>Naslov</th>
+            <th>Rating</th>
+            <th>Žanr</th>
+            <th>Opis</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

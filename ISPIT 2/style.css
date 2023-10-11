@@ -1,0 +1,27 @@
+#loader {
+  display: none;
+}
+
+#results {
+  display: none;
+}
+h1 {
+  font-size: 36px;
+  color: rgb(13, 0, 255);
+}
+
+td {
+  border: 2px solid black;
+  text-align: center;
+}
+th {
+  font-weight: 900;
+  font-size: large;
+}
+button {
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+button:hover {
+  background-color: rgb(155, 243, 255);
+}
